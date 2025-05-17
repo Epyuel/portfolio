@@ -1,6 +1,6 @@
-import { notFound } from "next/navigation";
+import { notFound} from "next/navigation";
 import { projectsData } from "@/lib/data";
-import { FaReact, FaNodeJs, FaPython } from "react-icons/fa";
+import { FaReact, FaNodeJs, FaPython, FaArrowLeft } from "react-icons/fa";
 import {
   SiNextdotjs,
   SiMongodb,
@@ -8,6 +8,7 @@ import {
   SiTypescript,
   SiFirebase,
 } from "react-icons/si";
+import Image from "next/image";
 
 const iconMap: Partial<Record<string, JSX.Element>> = {
   React: <FaReact className="text-[#61DAFB]" />,
@@ -36,16 +37,21 @@ export default function ProjectDetailPage({
   return (
     <div className="min-h-screen bg-white text-gray-900 dark:bg-gray-900 dark:text-gray-100 p-4 sm:p-8 transition-colors duration-300">
       <div className="max-w-4xl mx-auto">
-        <img
+        <Image
           src={project.imageUrl.src}
           alt={project.title}
-          className="w-full h-auto rounded-2xl mb-8 border border-gray-300 dark:border-gray-700 shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-[1.02]"
+          width={500}
+          height={100}
+          className="w-full !h-auto rounded-2xl mb-8 border border-gray-300 dark:border-gray-700 shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-[1.02]"
         />
 
         <div className="space-y-6">
-          <h1 className="text-4xl font-bold bg-gradient-to-r from-blue-500 to-purple-500 bg-clip-text text-transparent">
-            {project.title}
-          </h1>
+          <div className="flex items-center gap-2">
+            <a href="/"><FaArrowLeft className="text-xl text-blue-500 hover:text-[1.4rem] cursor-pointer"/></a>
+            <h1 className="text-4xl font-bold bg-gradient-to-r from-blue-500 to-purple-500 bg-clip-text text-transparent">
+              {project.title}
+            </h1>
+          </div>
 
           <div className="text-gray-700 dark:text-gray-300 text-lg leading-relaxed whitespace-pre-line">
             {project.description}

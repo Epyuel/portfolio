@@ -13,3 +13,11 @@ html.dark {
 .borderBlack {
   @apply border border-black/10;
 }
+
+.truncate-lines {
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;    /* number of lines to show */
+  -webkit-box-orient: vertical;
+  text-overflow: ellipsis;
+}
