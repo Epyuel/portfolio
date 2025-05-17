@@ -1,36 +1,64 @@
 import Header from "@/components/header";
-import "./globals.css";
-import { Inter } from "next/font/google";
-import ActiveSectionContextProvider from "@/context/active-section-context";
 import Footer from "@/components/footer";
 import ThemeSwitch from "@/components/theme-switch";
+import ActiveSectionContextProvider from "@/context/active-section-context";
 import ThemeContextProvider from "@/context/theme-context";
+
+import { Inter } from "next/font/google";
 import { Toaster } from "react-hot-toast";
-import { Metadata } from "next";
+import type { Metadata } from "next";
+
+import "./globals.css";
 
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://portfolio-eyuels-projects.vercel.app/"),
-  keywords: ["portfolio","developer","front-end"],
-  title:{
+  title: {
     default: "Portfolio",
-    template:'%s | Portfolio'
+    template: "%s | Portfolio",
   },
-  openGraph:{
-    title: 'Portfolio',
-    description: "Learn to code && have fun doing it :)",
-    url: 'https://portfolio-eyuels-projects.vercel.app/',
-    locale:'en_us',
-    type:'website',
-    images:[
+  description:
+    "Front-end developer portfolio — Learn to code & have fun doing it :)",
+  keywords: [
+    "portfolio",
+    "frontend developer",
+    "web developer",
+    "React",
+    "JavaScript",
+    "TypeScript",
+    "Tailwind",
+    "Next.js",
+    "Eyuels Projects",
+  ],
+  openGraph: {
+    title: "Portfolio",
+    description:
+      "Front-end developer portfolio — Learn to code & have fun doing it :)",
+    url: "https://portfolio-eyuels-projects.vercel.app/",
+    locale: "en_US",
+    type: "website",
+    images: [
       {
-        url: '',
-        width:800,
-        height:600,
-      }
-    ]
-  }
+        url: "/og-image.png",
+        width: 800,
+        height: 600,
+        alt: "Eyuel's Portfolio Preview",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Portfolio",
+    description:
+      "Front-end developer portfolio — Learn to code & have fun doing it :)",
+    images: ["/og-image.png"],
+    creator: "@yourTwitterHandle",
+  },
+  viewport: {
+    width: "device-width",
+    initialScale: 1,
+  },
 };
 
 export default function RootLayout({
@@ -49,9 +77,8 @@ export default function RootLayout({
         <ThemeContextProvider>
           <ActiveSectionContextProvider>
             <Header />
-            {children}
+            <main>{children}</main>
             <Footer />
-
             <Toaster position="top-right" />
             <ThemeSwitch />
           </ActiveSectionContextProvider>
