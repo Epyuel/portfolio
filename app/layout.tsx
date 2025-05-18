@@ -7,6 +7,7 @@ import { Toaster } from "react-hot-toast";
 import { Metadata } from "next";
 import { Analytics } from "@vercel/analytics/next"
 
+
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
