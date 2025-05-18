@@ -5,7 +5,7 @@ export default function robot(): MetadataRoute.Robots{
         rules: {
             userAgent:'*',
             allow:'/',
-            disallow:[]
+            disallow:'/admin'
         },
         sitemap: 'https://portfolio-eyuels-projects.vercel.app/sitemap.xml'
     }
